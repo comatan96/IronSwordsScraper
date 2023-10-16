@@ -1,0 +1,5 @@
+telethon
+matplotlib
+polars
+scikit-learn
+python-bidi
