@@ -28,8 +28,16 @@ for i, c in enumerate(df_cities):
         new_cities.append(None)
 df = df.with_columns(pd.Series(new_cities).alias('city'))
 df = df.drop_nulls()
+df_count_by_city = df.group_by('city').count()
 
-city = st.selectbox('city', sorted(list(set(new_cities) - {None})))
+city = st.selectbox(
+    'city',
+    sorted(
+        list(set(new_cities) - {None}),
+        key=lambda c: df_count_by_city.filter(df_count_by_city['city'] == c)['count'][0],
+        reverse=True
+    )
+)
 
 df_to_plot = df.filter(df['city'] == city)
 df_to_plot = df_to_plot.with_columns(df_to_plot['date'].dt.hour().alias('hour'))
