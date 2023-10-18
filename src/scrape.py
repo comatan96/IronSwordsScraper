@@ -17,6 +17,7 @@ class PikudHaorefScraper:
     def __init__(self, alert_type=AlertType.MISSILES) -> None:
         self._api = load_api_credentials()
         self.client = TelegramClient('anon', self._api.id, self._api.hash)
+        self.client.start()
         self.alert_parser = AlertParser(alert_type=alert_type)
         self.alerts = defaultdict(list)
 

@@ -3,3 +3,8 @@ matplotlib
 polars
 scikit-learn
 python-bidi
+seaborn
+plotly
+ipykernel
+nbformat
+streamlit

@@ -48,5 +48,6 @@ class AlertParser:
         while city := text_cont.popleft():
             if not city.strip():
                 break
-            cities.append(NotificationPatterns.city.match(city).group(1))
+            city = NotificationPatterns.city.match(city).group(1)
+            cities.extend([c for c in city.split(', ')])
         return Area(area_name, cities)
