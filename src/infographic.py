@@ -6,7 +6,7 @@ import json
 
 
 st.write('Plot the distribution of alerts in your city')
-df = pd.read_csv('data.csv').with_columns(
+df = pd.read_csv('src/data.csv').with_columns(
    pd.col('date').str.to_datetime()
 )
 
