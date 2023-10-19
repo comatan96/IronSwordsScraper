@@ -41,7 +41,7 @@ class PikudHaorefScraper:
                             self.alerts[feature].append(value)
             else:
                 break
-        pd.from_dict(self.alerts).write_csv('try.csv')
+        pd.from_dict(self.alerts).write_csv('data.csv')
 
 
 if __name__ == '__main__':
